@@ -1,3 +1,33 @@
+import "./Nav.css";
+import { useState, useEffect } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+
 export default function Nav() {
-  return <div>nav</div>;
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
+
+  const updateMedia = () => {
+    setIsMobile(window.innerWidth > 600);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
+  return (
+    <div className="nav">
+      <div className="nav-body">
+        <button className="resume-btn">Resume</button>
+        {isMobile ? (
+          <div className="links-div">
+            <a className="nav-link">About Me</a>
+            <a className="nav-link">Experience</a>
+            <a className="nav-link">Projects</a>
+          </div>
+        ) : (
+          <MenuIcon className="menu-icon" />
+        )}
+      </div>
+    </div>
+  );
 }
