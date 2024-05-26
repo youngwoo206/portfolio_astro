@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav";
+import Landing from "../components/Landing";
 ---
 
 <Layout title="Youngwoo Lee">
   <div>
     <Nav client:only />
+    <Landing client:only />
     <div style="height:100vh; background-color: aqua;"></div>
   </div>
 </Layout>

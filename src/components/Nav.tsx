@@ -6,7 +6,7 @@ export default function Nav() {
   const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
 
   const updateMedia = () => {
-    setIsMobile(window.innerWidth > 600);
+    setIsMobile(window.innerWidth > 720);
   };
 
   useEffect(() => {

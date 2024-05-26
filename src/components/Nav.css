@@ -1,9 +1,8 @@
 .nav{
     background-color: #01002E;
-    width: 100vw - 8px;
+    width: 100vw;
     height: 70px;
-    margin-left: -8px;
-    margin-top: -8px;
+    max-width: 100%;
     position: sticky;
     top:0;
     display: flex;
