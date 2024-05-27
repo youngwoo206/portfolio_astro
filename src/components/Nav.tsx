@@ -15,7 +15,7 @@ export default function Nav() {
   });
 
   return (
-    <div style={{ position: "fixed" }}>
+    <div style={{ position: "fixed", zIndex: 100 }}>
       <div className="nav">
         <div className="nav-body">
           <button className="resume-btn">Resume</button>
@@ -30,7 +30,9 @@ export default function Nav() {
               <a href="#exp" className="nav-link">
                 Experience
               </a>
-              <a className="nav-link">Projects</a>
+              <a href="#projects" className="nav-link">
+                Projects
+              </a>
             </div>
           ) : (
             <MenuIcon className="menu-icon" />

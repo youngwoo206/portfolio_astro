@@ -1,0 +1,65 @@
+.embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+.projects-main{
+    padding-top: 80px;
+    padding-bottom: 200px;
+    background-color: #411DD5;
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-container{
+    /* background-color: aqua; */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.project-slide{
+    max-width: 800px;
+    height: 440px;
+    background-color: #220F6F;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.project-scroll-btn{
+  color: white;
+  width: 100px;
+  height: 100px;
+}
+
+.project-img{
+  width: 540px;
+  height: 250px;
+  background-color: aquamarine;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.project-stack{
+  width: 90%;
+  max-width: 580px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #220F6F;
+}

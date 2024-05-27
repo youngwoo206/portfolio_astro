@@ -24,11 +24,49 @@ const { title } = Astro.props;
   <body style="margin: 0;">
     <slot />
   </body>
+  <footer>
+    <div
+      style="background-color: rgb(35, 35, 35); height: 20vh; text-align: center; padding-top: 30px; color: #c5c5c5; "
+    >
+      <p style="font-size: 1.1rem;">My Contacts:</p>
+      <div
+        style="display: flex; justify-content: center; align-items: center; gap: 40px;"
+      >
+        <a
+          href="https://www.linkedin.com/in/youngwoo-lee-123b63198/"
+          target="_blank"
+          class="footer-links"
+          ><p>LinkedIn</p>
+        </a>
+        <a
+          href="https://github.com/youngwoo206"
+          target="_blank"
+          class="footer-links"
+          ><p>GitHub</p>
+        </a>
+        <a
+          href="mailto:y288lee@uwaterloo.ca"
+          target="_blank"
+          class="footer-links"
+        >
+          <p>Email</p>
+        </a>
+      </div>
+    </div>
+  </footer>
 </html>
 <style is:global>
   html {
     font-family: "Inter";
     margin: 0;
     background-color: #220f6f;
+  }
+  .footer-links {
+    color: #a1a1a1;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .footer-links:hover {
+    color: #51ea38;
   }
 </style>

@@ -3,12 +3,10 @@
     width: 100vw;
     height: 70px;
     max-width: 100%;
-    position: sticky;
     top:0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
 }
 
 html{
@@ -70,7 +68,6 @@ html{
     position: sticky;
     scale: 0 1;
     transform-origin: left;
-    z-index: 1000;
     animation: scroll-watcher linear;
     animation-timeline: scroll();
 }
