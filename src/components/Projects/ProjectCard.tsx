@@ -1,12 +1,47 @@
+import { useState } from "react";
 import "./Projects.css";
 
 interface ProjectCardProps {
   title: string;
   date: string;
+  image: string;
   stack: string;
+  details: string[];
+  link: string;
 }
 
-export default function ProjectCard({ title, date, stack }: ProjectCardProps) {
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 800,
+  height: 420,
+  backgroundColor: "#411DD5",
+  borderRadius: "20px",
+  boxShadow: 24,
+  p: 4,
+};
+
+export default function ProjectCard({
+  title,
+  date,
+  stack,
+  image,
+  details,
+  link,
+}: ProjectCardProps) {
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleShowDetails = () => setShowDetails(true);
+  const handleShowImage = () => setShowDetails(false);
+
+  const detailsEls = details.map((detail) => (
+    <li>
+      <p>{detail}</p>
+    </li>
+  ));
+
   return (
     <div className="project-slide">
       <p
@@ -27,17 +62,33 @@ export default function ProjectCard({ title, date, stack }: ProjectCardProps) {
       >
         {date}
       </p>
-      <div className="project-img"></div>
+      {showDetails ? (
+        <div onClick={handleShowImage} className="project-details">
+          <ul style={{ marginRight: "10px" }}>{detailsEls}</ul>
+          <p style={{ textAlign: "center", marginTop: 30, fontSize: "1.1rem" }}>
+            Check out this project{" "}
+            <span>
+              <a
+                href={link}
+                target="_blank"
+                style={{
+                  color: "white",
+                  textDecorationColor: "#51EA38",
+                }}
+              >
+                here!
+              </a>
+            </span>
+          </p>
+        </div>
+      ) : (
+        <div
+          className="project-img"
+          style={{ backgroundImage: `url(${image})` }}
+          onClick={handleShowDetails}
+        />
+      )}
       <div className="project-stack">
-        {/* <p
-          style={{
-            fontSize: "1.2rem",
-            marginTop: "12px",
-            marginBottom: "2px",
-          }}
-        >
-          Stack: {"Java, CSS, C#"}
-        </p> */}
         <p
           style={{
             fontSize: "1.4rem",

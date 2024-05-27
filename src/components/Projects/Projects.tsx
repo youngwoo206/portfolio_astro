@@ -19,13 +19,39 @@ export default function Projects() {
   const projectsArr = [
     {
       title: "PulsePoint",
-      date: "Jun. 2023 - Jul. 2023",
+      date: "Reddit-like Social Media Web App (Jun. 2023 - Jul. 2023)",
+      image: "pulsepoint.png",
       stack: "Next.js, React, Tailwind.css, Prisma DB, Redis, GCP",
+      details: [
+        "Developed Reddit-like social media web app using React, Next.js, Tailwind and Prisma to serve as a forum platform for me and my friends",
+        "Implemented features like a WYSIWYG editor for users to post text, photos, videos, code blocks, and more",
+        "Utilized Redis for client-side caching to optimize for performance",
+      ],
+      link: "https://github.com/youngwoo206/Project_PulsePoint",
     },
     {
       title: "UWaterloo IGem Wiki",
-      date: "Jul. 2022 - Nov. 2022",
-      stack: "React, TypeScript, Material UI, Redux, Figma",
+      date: "Software Team Lead for Award Winning Website (Jul. 2022 - Nov. 2022)",
+      image: "igem.png",
+      stack: "React, TypeScript, Material UI, Redux, Figma, GitLab",
+      details: [
+        "Led a team of 3 to develop a wiki website presenting all the research conducted by the UWaterloo IGem design team ",
+        "Developed multiple key accessibility features, including text-to-speech, adjustable font size, keyboard shortcuts, light/dark mode, and more",
+        "Won Gold medal at 2022 IGem conference in Paris, France with full points in the website features and accessibility category",
+      ],
+      link: "https://2022.igem.wiki/waterloo/",
+    },
+    {
+      title: "RoboNav SLAM Capstone Project",
+      date: "Simultaneous Location and Mapping - guided Robot (May. 2024 - Present)",
+      image: "slam.png",
+      stack: "Python (Pandas, NumPy, TensorFlow), C/C++, Simulink",
+      details: [
+        "Partnering with Eddyfi Technologies to develop demo of robot with a Simultaneous Location and Mapping (SLAM) system",
+        "Building a small crawler robot with integrated Lidar sensor capable of navigating tight spaces like pipelines and nuclear reactors",
+        "Developing a SLAM algorithm using Python TensorFlow to read sensor data and return 2D map of working environment",
+      ],
+      link: "https://www.eddyfi.com/en/industry/non-destructive-testing-in-oil-and-gas-industry",
     },
   ];
 
@@ -34,7 +60,10 @@ export default function Projects() {
       <ProjectCard
         title={project.title}
         date={project.date}
+        image={project.image}
         stack={project.stack}
+        details={project.details}
+        link={project.link}
       />
     </div>
   ));
