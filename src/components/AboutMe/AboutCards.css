@@ -1,0 +1,56 @@
+.card-body{
+    max-width: 620px;
+    height: 400px;
+    background-color: #352479;
+    border-radius: 20px;
+    box-shadow: 5px 6px #1d1246;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+@media (min-width: 720px){
+    .card-content{
+        /* background-color: blueviolet; */
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+  }
+
+
+.card-img-div{
+    /* background-color: aqua; */
+    padding-left: 15px;
+    color: #C8BAFF;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.card-text-div{
+    /* background-color: palevioletred; */
+    text-align: left;
+    padding: 0px 15px 0px 15px;
+}
+
+.card-text-div p{
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.about-pic{
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.skill-section p{
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+
+.skill-section{
+    margin-bottom: 10px;
+}

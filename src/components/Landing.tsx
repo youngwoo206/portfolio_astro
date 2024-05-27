@@ -1,13 +1,26 @@
 import "./Landing.css";
+import { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 export default function Landing() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
+
+  const updateMedia = () => {
+    setIsMobile(window.innerWidth > 720);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
-    <div className="landing">
+    <div className="landing" id="home">
       <div className="landing-grid">
         <div className="hello-div">
           <p>Hi, I'm </p>
@@ -16,15 +29,15 @@ export default function Landing() {
             <TypeAnimation
               sequence={[
                 "software developer",
-                6000,
+                4500,
                 "engineering student",
-                6000,
+                4500,
                 "lifelong learner",
-                6000,
+                4500,
                 "lego enthusiast",
-                6000,
+                4500,
                 "raptors fan",
-                6000,
+                4500,
               ]}
               wrapper="div"
               repeat={Infinity}
@@ -84,11 +97,30 @@ export default function Landing() {
               height: "50px",
               color: "#A995F9",
               transition: "0.3s",
-              "&:hover": { width: "55px", height: "55px", color: "#C8BAFF" },
+              "&:hover": {
+                width: "55px",
+                height: "55px",
+                color: "#C8BAFF",
+              },
             }}
           />
         </a>
       </div>
+      {isMobile && (
+        <a href="#aboutme" className="down-arr">
+          <KeyboardArrowDownIcon
+            sx={{
+              width: 40,
+              height: 40,
+              color: "#C8BAFF",
+              transition: "0.3s",
+              "&:hover": {
+                color: "#51EA38",
+              },
+            }}
+          />
+        </a>
+      )}
     </div>
   );
 }

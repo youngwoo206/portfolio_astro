@@ -1,6 +1,6 @@
 .landing{
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     max-width: 100%;
     margin-top: 0;
     display: flex;
@@ -33,7 +33,7 @@
 }
 
 .hello-div p{
-    font-size: 50px;
+    font-size: 3.1rem;
     margin-top: 0px;
     margin-bottom: 10px;
 }
@@ -63,5 +63,9 @@
     width: "50px"; 
     height: "50px"; 
     color: "#A995F9";
+}
 
+.down-arr{
+    position: absolute;
+    top: 92vh;
 }

@@ -15,19 +15,27 @@ export default function Nav() {
   });
 
   return (
-    <div className="nav">
-      <div className="nav-body">
-        <button className="resume-btn">Resume</button>
-        {isMobile ? (
-          <div className="links-div">
-            <a className="nav-link">About Me</a>
-            <a className="nav-link">Experience</a>
-            <a className="nav-link">Projects</a>
-          </div>
-        ) : (
-          <MenuIcon className="menu-icon" />
-        )}
+    <div style={{ position: "fixed" }}>
+      <div className="nav">
+        <div className="nav-body">
+          <button className="resume-btn">Resume</button>
+          {isMobile ? (
+            <div className="links-div">
+              <a href="#home" className="nav-link">
+                Home
+              </a>
+              <a href="#aboutme" className="nav-link">
+                About Me
+              </a>
+              <a className="nav-link">Experience</a>
+              <a className="nav-link">Projects</a>
+            </div>
+          ) : (
+            <MenuIcon className="menu-icon" />
+          )}
+        </div>
       </div>
+      <div className="scroll-watcher" />
     </div>
   );
 }
