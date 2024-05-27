@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 html{
@@ -33,10 +34,11 @@ html{
     font-size: 20px;
     color: #FFFFFF;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .resume-btn:hover{
-    border: 2px solid #51EA38;
+    background-color: #3919bb;
 }
 
 .links-div{

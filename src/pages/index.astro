@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav";
 import Landing from "../components/Landing";
 import AboutMe from "../components/AboutMe/AboutMe";
+import Experience from "../components/Experience/Experience";
 ---
 
 <Layout title="Youngwoo Lee">
@@ -34,6 +35,7 @@ import AboutMe from "../components/AboutMe/AboutMe";
         </p>
       </div>
       <AboutMe client:only />
+      <Experience client:only />
     </div>
   </div>
 </Layout>

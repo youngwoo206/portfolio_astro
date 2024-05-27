@@ -27,7 +27,9 @@ export default function Nav() {
               <a href="#aboutme" className="nav-link">
                 About Me
               </a>
-              <a className="nav-link">Experience</a>
+              <a href="#exp" className="nav-link">
+                Experience
+              </a>
               <a className="nav-link">Projects</a>
             </div>
           ) : (
