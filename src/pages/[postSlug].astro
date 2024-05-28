@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBlog from "../components/NavBlog";
+import { Query } from "appwrite";
+import { databases } from "../lib/appwrite";
+
+const { postSlug } = Astro.params;
+
+if (!postSlug) {
+  return Astro.redirect("/");
+}
+
+const { documents } = await databases.listDocuments(
+  "66550efa00258f37deae",
+  "66550f19001bbefea396",
+  [Query.equal("slug", postSlug)]
+);
+
+if (documents.length === 0) {
+  return Astro.redirect("/404");
+}
+
+const post = documents[0];
+const publishedDate = new Date(post.$createdAt);
+---
+
+<Layout title=`blog post ${postSlug}`>
+  <div>
+    <NavBlog client:only />
+    <div class="post-page-body">
+      <p style={{ fontSize: "2rem", marginBottom: "30px" }}>My Blog:</p>
+      <div class="post-div">
+        <p style={{ fontSize: "1.6rem", marginBottom: "10px" }}>
+          {post.title}
+        </p>
+        <p style={{ fontSize: "1rem", fontStyle: "italic", marginTop: "0" }}>
+          <time datetime={publishedDate.toISOString()}
+            >Published {publishedDate.toLocaleDateString()}</time
+          >
+        </p>
+        <div class="divider"></div>
+        <Fragment set:html={post.content} />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .post-page-body {
+    padding-top: 10px;
+    min-height: 80vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #220f6f;
+    background-image: linear-gradient(#411dd5, #220f6f);
+  }
+  .post-div {
+    width: 600px;
+    border-radius: 20px;
+    background-color: #352479;
+    box-shadow: 5px 6px #1d1246;
+    padding: 20px 40px;
+    padding-bottom: 40px;
+  }
+  .divider {
+    width: 600px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #51ea38;
+    margin-bottom: 20px;
+  }
+</style>

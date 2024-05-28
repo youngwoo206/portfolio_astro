@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBlog from "../components/NavBlog";
+import { Query } from "appwrite";
+import { databases } from "../lib/appwrite";
+
+const { documents: posts } = await databases.listDocuments(
+  "66550efa00258f37deae",
+  "66550f19001bbefea396"
+);
+---
+
+<Layout title="Youngwoo Lee">
+  <div>
+    <NavBlog client:only />
+    <div class="blog-feed-body">
+      <p style={{ fontSize: "2rem", marginBottom: "30px" }}>My Blog:</p>
+
+      {
+        posts.reverse().map((post) => {
+          const publishedDate = new Date(post.$createdAt);
+          return (
+            <div class="post-excerpt-div">
+              <a href={`/${post.slug}`} class="title-link">
+                {" "}
+                <p style={{ fontSize: "1.5rem", marginBottom: "10px" }}>
+                  {post.title}
+                </p>
+              </a>
+              <p
+                style={{
+                  fontSize: "1rem",
+                  fontStyle: "italic",
+                  marginTop: "0",
+                }}
+              >
+                <time datetime={publishedDate.toISOString()}>
+                  Published {publishedDate.toLocaleDateString()}
+                </time>
+              </p>
+              <div class="divider" />
+              <p style={{ fontSize: "1rem" }}>{post.excerpt}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .blog-feed-body {
+    padding-top: 10px;
+    min-height: 80vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #220f6f;
+    background-image: linear-gradient(#411dd5, #220f6f);
+  }
+  .post-excerpt-div {
+    width: 600px;
+    border-radius: 20px;
+    background-color: #352479;
+    box-shadow: 5px 6px #1d1246;
+    padding: 20px 40px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  .title-link {
+    text-decoration: none;
+    color: white;
+  }
+  .title-link:hover {
+    text-decoration: underline;
+  }
+  .divider {
+    width: 600px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #51ea38;
+    margin-bottom: 20px;
+  }
+</style>

@@ -1,6 +1,7 @@
 import "./Nav.css";
 import { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import resume from "../assets/YoungwooLeeFE.pdf";
 
 export default function Nav() {
   const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
@@ -18,12 +19,11 @@ export default function Nav() {
     <div style={{ position: "fixed", zIndex: 100 }}>
       <div className="nav">
         <div className="nav-body">
-          <button className="resume-btn">Resume</button>
+          <a className="resume-btn" href={resume} download="YoungwooLeeFE.pdf">
+            Resume
+          </a>
           {isMobile ? (
             <div className="links-div">
-              <a href="#home" className="nav-link">
-                Home
-              </a>
               <a href="#aboutme" className="nav-link">
                 About Me
               </a>
@@ -32,6 +32,12 @@ export default function Nav() {
               </a>
               <a href="#projects" className="nav-link">
                 Projects
+              </a>
+              <a href="/blog" className="nav-link">
+                Blog
+              </a>
+              <a href="/post" className="nav-link">
+                Post
               </a>
             </div>
           ) : (

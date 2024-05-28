@@ -33,6 +33,10 @@ html{
     color: #FFFFFF;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .resume-btn:hover{
