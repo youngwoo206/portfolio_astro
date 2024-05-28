@@ -1,12 +1,19 @@
 import "./Projects.css";
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ProjectCard from "./ProjectCard";
+import ProjectThumbnail from "./ProjectThumbnail";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 export default function Projects() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
+    containScroll: "keepSnaps",
+    dragFree: true,
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -18,6 +25,7 @@ export default function Projects() {
 
   const projectsArr = [
     {
+      index: 0,
       title: "PulsePoint",
       date: "Reddit-like Social Media Web App (Jun. 2023 - Jul. 2023)",
       image: "pulsepoint.png",
@@ -30,6 +38,7 @@ export default function Projects() {
       link: "https://github.com/youngwoo206/Project_PulsePoint",
     },
     {
+      index: 1,
       title: "UWaterloo IGem Wiki",
       date: "Software Team Lead for Award Winning Website (Jul. 2022 - Nov. 2022)",
       image: "igem.png",
@@ -42,6 +51,7 @@ export default function Projects() {
       link: "https://2022.igem.wiki/waterloo/",
     },
     {
+      index: 2,
       title: "RoboNav SLAM Capstone Project",
       date: "Simultaneous Location and Mapping - guided Robot (May. 2024 - Present)",
       image: "slam.png",
@@ -56,7 +66,7 @@ export default function Projects() {
   ];
 
   const projectsEls = projectsArr.map((project) => (
-    <div className="embla__slide">
+    <div className="embla__slide" key={project.index}>
       <ProjectCard
         title={project.title}
         date={project.date}
@@ -64,9 +74,37 @@ export default function Projects() {
         stack={project.stack}
         details={project.details}
         link={project.link}
+        key={project.index}
       />
     </div>
   ));
+
+  const projectThumbnails = projectsArr.map((project) => (
+    <div onClick={() => onThumbClick(project.index)} key={project.index}>
+      <ProjectThumbnail index={project.index} />
+    </div>
+  ));
+
+  const onThumbClick = useCallback(
+    (index: number) => {
+      if (!emblaApi || !emblaThumbsApi) return;
+      emblaApi.scrollTo(index);
+    },
+    [emblaApi, emblaThumbsApi]
+  );
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi || !emblaThumbsApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaThumbsApi.scrollTo(emblaApi.selectedScrollSnap());
+  }, [emblaApi, emblaThumbsApi, setSelectedIndex]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+
+    emblaApi.on("select", onSelect).on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <div className="projects-main" id="projects">
@@ -97,6 +135,7 @@ export default function Projects() {
           }}
         />
       </div>
+      {/* <div className="thumbnail-container">{projectThumbnails}</div> */}
     </div>
   );
 }
