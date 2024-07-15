@@ -33,12 +33,12 @@ export default function Nav() {
               <a href="#projects" className="nav-link">
                 Projects
               </a>
-              <a href="/blog" className="nav-link">
+              {/* <a href="/blog" className="nav-link">
                 Blog
               </a>
               <a href="/post" className="nav-link">
                 Post
-              </a>
+              </a> */}
             </div>
           ) : (
             <MenuIcon className="menu-icon" />
