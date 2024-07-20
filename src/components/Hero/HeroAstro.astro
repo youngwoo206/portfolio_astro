@@ -1,0 +1,23 @@
+---
+import "./Hero.css";
+---
+
+<div class="home">
+  <img src="hero/mount2.png" class="mount2" />
+  <img src="hero/mount1.png" class="mount1" />
+  <img src="hero/bush2.png" class="bush2" />
+
+  <h1 class="title">Hi, I'm Youngwoo</h1>
+
+  <img src="hero/bush1.png" class="bush1" />
+  <img src="hero/leaf2.png" class="leaf2" />
+  <img src="hero/leaf1.png" class="leaf1" />
+
+  <script>
+    const title = document.querySelector(".title");
+    document.addEventListener("scroll", () => {
+      let value = window.scrollY;
+      console.log(value);
+    });
+  </script>
+</div>

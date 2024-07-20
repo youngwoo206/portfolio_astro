@@ -5,12 +5,17 @@ import Landing from "../components/Landing";
 import AboutMe from "../components/AboutMe/AboutMe";
 import Experience from "../components/Experience/Experience";
 import Projects from "../components/Projects/Projects";
+import Hero from "../components/Hero";
+
+import HeroAstro from "../components/Hero/HeroAstro.astro";
 ---
 
 <Layout title="Youngwoo Lee">
   <div>
     <Nav client:only />
-    <Landing client:only />
+    <!-- <Landing client:only /> -->
+    <!-- <Hero client:only /> -->
+    <HeroAstro />
     <div
       id="aboutme"
       style="
