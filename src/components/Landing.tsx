@@ -20,7 +20,7 @@ export default function Landing() {
   });
 
   return (
-    <div className="landing" id="home">
+    <div>
       <div className="landing-grid">
         <div className="hello-div">
           <p>Hi, I'm </p>
@@ -41,7 +41,6 @@ export default function Landing() {
               ]}
               wrapper="div"
               repeat={Infinity}
-              //   repeat={0}
               style={{
                 fontSize: "1.6rem",
                 color: "white",
