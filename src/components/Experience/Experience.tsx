@@ -17,6 +17,24 @@ export default function Experience() {
 
   const expCards = [
     <ExpCardLarge
+      title="Ada CX, Web Developer Intern"
+      date="Jun. 2024 - Present"
+      image="ada.jpeg"
+      skills={[
+        "Astro.js",
+        "React",
+        "TypeScript",
+        "Alpine.js",
+        "Tailwind CSS",
+        "HTML & CSS",
+      ]}
+      responsibilities="Working on customer-facing main site by using Astro.js and Tailwind.css to develop new features, create new pages, and perform daily site maintenance "
+      accomplishments={[
+        "Led a comprehensive rework of the statically-generated Astro.js blog page, developing key new features like a search bar, dynamically generated table of contents, and an embedded newsletter signup form",
+        "Developed a flexible and reusable React search bar component capable of accepting different data formats for different use cases, with a fuzzy-match search algorithm for an intuitive user experience",
+      ]}
+    />,
+    <ExpCardLarge
       title="Junior AI, Software Engineering Intern"
       date="Aug. 2023 - Dec. 2023"
       image="junior_ai_logo.jpeg"
@@ -29,7 +47,7 @@ export default function Experience() {
         "Python",
         "MUI",
       ]}
-      responsibilities="Develop Portal web application meant to accompany legal AI plugin tool, allowing users to manage settings, update tool defaults, and more"
+      responsibilities="Developed Portal web application meant to accompany legal AI plugin tool, allowing users to manage settings, update tool defaults, and more"
       accomplishments={[
         "Built out “legal snippets” major feature from the ground up, which allows users to save and reuse common legal phrases with updated text (case names, dates, locations, etc) to best match the current legal document",
         "Migrated AI training compute method from existing on-premise solution to GPU-optimized AWS EC2 instance, reducing training times by over 75%",
@@ -40,7 +58,7 @@ export default function Experience() {
       date="May. 2023 - Aug. 2023"
       image="baselane_logo.jpeg"
       skills={["Cypress", "TypeScript", "Github Actions", "Jira"]}
-      responsibilities="Build out automated end-to-end testing suite to enhance app coverage using TypeScript-based testing framework Cypress"
+      responsibilities="Built out automated end-to-end testing suite to enhance app coverage using TypeScript-based testing framework Cypress"
       accomplishments={[
         "Developed multiple new comprehensive end-to-end tests, adding test coverage to parts of the app not previously covered and catching 30+ bugs app-wide within a 4 month time span",
         "Refactored existing Cypress tests by implementing features like hooks and aliases over previous solution, reducing test duration for some refactored tests by up to 40%",
