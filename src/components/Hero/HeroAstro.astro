@@ -1,0 +1,41 @@
+---
+import "./Hero.css";
+import HeroContent from "./HeroContent";
+---
+
+<div class="home">
+  <img src="hero/mount2.png" class="mount2" />
+  <img src="hero/mount1.png" class="mount1" />
+  <img src="hero/bush2.png" class="bush2" />
+
+  <HeroContent client:load />
+
+  <img src="hero/bush1.png" class="bush1" />
+  <img src="hero/leaf2.png" class="leaf2" />
+  <img src="hero/leaf1.png" class="leaf1" />
+
+  <script>
+    const title = document.querySelector(".title");
+    const leaf1 = document.querySelector(".leaf1");
+    const leaf2 = document.querySelector(".leaf2");
+    const bush2 = document.querySelector(".bush2");
+    const mount1 = document.querySelector(".mount1");
+    const mount2 = document.querySelector(".mount2");
+
+    document.addEventListener("scroll", () => {
+      let value = window.scrollY;
+      //@ts-ignore
+      title.style.marginTop = value * 1.1 + "px";
+      //@ts-ignore
+      leaf1.style.marginLeft = -value + "px";
+      //@ts-ignore
+      leaf2.style.marginLeft = value + "px";
+      //@ts-ignore
+      bush2.style.marginBottom = -value + "px";
+      //@ts-ignore
+      mount1.style.marginBottom = -value * 1.1 + "px";
+      //@ts-ignore
+      mount2.style.marginBottom = -value * 1.2 + "px";
+    });
+  </script>
+</div>

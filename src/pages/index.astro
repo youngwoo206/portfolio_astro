@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav";
-import Landing from "../components/Landing";
+import HeroAstro from "../components/Hero/HeroAstro.astro";
 import AboutMe from "../components/AboutMe/AboutMe";
+import Skills from "../components/Skills";
 import Experience from "../components/Experience/Experience";
 import Projects from "../components/Projects/Projects";
 ---
@@ -10,7 +11,7 @@ import Projects from "../components/Projects/Projects";
 <Layout title="Youngwoo Lee">
   <div>
     <Nav client:only />
-    <Landing client:only />
+    <HeroAstro />
     <div
       id="aboutme"
       style="
@@ -36,6 +37,7 @@ import Projects from "../components/Projects/Projects";
         </p>
       </div>
       <AboutMe client:only />
+      <Skills client:only />
       <Experience client:only />
       <Projects client:only />
     </div>
