@@ -1,0 +1,49 @@
+.skills-body{
+    background-color: #220F6F;
+    padding-top: 70px;
+    padding-bottom: 140px;
+    white-space: nowrap;
+}
+
+.skill-pill{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #9e69d6;
+    box-shadow: 5px 4px 4px rgb(22, 22, 22)
+}
+
+@keyframes scroll{
+    to {
+        transform: translate(calc(-50% - 25px));
+    }
+}
+
+.scroller{
+    height: 70px;
+    max-width: 1200px;
+    /* background-color: gray; */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent)
+}
+
+.scroller-inner{
+    display: flex;
+    gap: 50px;
+    padding-block: 10px;
+    flex-wrap: nowrap;
+    animation: scroll 20s linear infinite;
+    width: max-content;
+}
+
+.scroller:hover{
+    .scroller-inner{
+        animation-play-state: paused;
+    }
+}
+
