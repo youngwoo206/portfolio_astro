@@ -15,7 +15,8 @@
     border-radius: 10px;
     padding: 10px 20px;
     background-color: #9e69d6;
-    box-shadow: 5px 4px 4px rgb(22, 22, 22)
+    box-shadow: 5px 4px 4px rgb(22, 22, 22);
+    cursor: pointer;
 }
 
 @keyframes scroll{
@@ -55,7 +56,16 @@
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (min-width: 1280px){
+    .legend{
+        display: flex;
+        gap: 0;
+    }
 }
 
 .legend-item{
