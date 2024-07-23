@@ -1,6 +1,4 @@
 .nav{
-    /* background-color: #01002E; */
-    /* opacity: 0.5; */
     background-color: rgba(1,0,46,0.5);
     width: 100vw;
     height: 70px;
@@ -17,7 +15,6 @@ html{
 
 .nav-body{
     max-width: 1400px;
-    /* background-color: red; */
     width: 90vw;
     height: 40px;
     display: flex;
@@ -87,4 +84,32 @@ html{
 
 @keyframes scroll-watcher{
     to {scale:1 1;}
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    width: 200px;
+    background-color: #86A8DB;
+}
+
+.nav-link-mobile{
+    color: white;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    
+}
+
+.nav-link-mobile:hover p{
+    border-bottom: 2px solid #51EA38;
+}
+
+.nav-link-mobile p{
+    border-bottom: 2px solid rgba(255,255,255,0);
 }

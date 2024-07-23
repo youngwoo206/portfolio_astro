@@ -14,10 +14,9 @@ export default function AboutCard2() {
       >
         Skills
       </p>
-      <div className="card-content" style={{ width: "620px" }}>
+      <div className="card-content">
         <div className="card-img-div">
           {" "}
-          <WebAssetIcon sx={{ width: 60, height: 60 }} />
           <WebAssetIcon sx={{ width: 60, height: 60 }} />
         </div>
 
