@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { TypeAnimation } from "react-type-animation";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -9,7 +11,7 @@ export default function HeroContent() {
         <div className="img-div">
           <img src="me.jpeg" alt="profile pic" className="pfp" />
         </div>
-        <p>Hi, I'm Youngwoo 👋</p>
+        <p className="hero-text">Hi, I'm Youngwoo 👋</p>
         <div>
           <TypeAnimation
             sequence={[
@@ -29,10 +31,10 @@ export default function HeroContent() {
             style={{
               fontSize: "1.8rem",
               color: "white",
-                marginTop: "20px",
+              marginTop: "20px",
               marginBottom: "20px",
-                zIndex: "50",
-              textAlign: "center"
+              zIndex: "50",
+              textAlign: "center",
             }}
             cursor={true}
           />
@@ -43,27 +45,21 @@ export default function HeroContent() {
             target="_blank"
             style={{ width: "55px", height: "55px" }}
           >
-            <FaLinkedin
-              className="link-icon"
-            />
+            <FaLinkedin className="link-icon" />
           </a>
           <a
             href="https://github.com/youngwoo206"
             target="_blank"
             style={{ width: "55px", height: "55px" }}
           >
-            <FaGithub
-              className="link-icon"
-            />
+            <FaGithub className="link-icon" />
           </a>
           <a
             href="mailto:y288lee@uwaterloo.ca"
             target="_blank"
             style={{ width: "55px", height: "55px" }}
           >
-            <MdEmail
-              className="link-icon"
-            />
+            <MdEmail className="link-icon" />
           </a>
         </div>
       </div>

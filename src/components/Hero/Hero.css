@@ -1,6 +1,7 @@
 .home{
     height: 100dvh;
     background: linear-gradient(to top, #9e69d6 30%, #86A8DB);
+    background-color: #3b3291;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -27,6 +28,10 @@
     position: relative;
     /* background-color: #9e69d6; */
     height: fit-content;
+}
+
+.hero-text{
+    text-align: center;
 }
 
 .title-content p{

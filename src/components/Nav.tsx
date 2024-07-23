@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import resume from "../assets/YoungwooLee2025.pdf";
 
 export default function Nav() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 720);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
   const updateMedia = () => {
