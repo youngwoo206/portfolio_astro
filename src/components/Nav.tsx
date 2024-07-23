@@ -26,6 +26,16 @@ export default function Nav() {
     setAnchorEl(null);
   };
 
+  const handleScroll = (ref: string) => {
+    const yOffset = 20;
+    const el = document.getElementById(ref);
+    if (el) {
+      const scrollY =
+        el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: scrollY, behavior: "smooth" });
+    }
+  };
+
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
@@ -42,15 +52,15 @@ export default function Nav() {
           </a>
           {isMobile ? (
             <div className="links-div">
-              <a href="#aboutme" className="nav-link">
-                <p>About Me</p>
-              </a>
-              <a href="#exp" className="nav-link">
-                Experience
-              </a>
-              <a href="#projects" className="nav-link">
-                Projects
-              </a>
+              <div onClick={() => handleScroll("aboutme")}>
+                <p className="nav-link">About Me</p>
+              </div>
+              <div onClick={() => handleScroll("exp")}>
+                <p className="nav-link">Experience</p>
+              </div>
+              <div onClick={() => handleScroll("projects")}>
+                <p className="nav-link">Projects</p>
+              </div>
             </div>
           ) : (
             <div>
