@@ -1,4 +1,5 @@
 import "./Skills.css";
+import Skill from "./Skill";
 
 export default function Skills() {
   const skills = [
@@ -75,21 +76,8 @@ export default function Skills() {
     doubledSkills.push(el);
   });
 
-  const handleScroll = (ref: string) => {
-    const yOffset = -200;
-    const el = document.getElementById(ref);
-    if (el) {
-      const scrollY =
-        el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: scrollY, behavior: "smooth" });
-    }
-  };
-
   const skillsEls = doubledSkills.map((skill) => (
-    <div className="skill-pill" onClick={() => handleScroll(skill.ref)}>
-      <div className="dot" style={{ backgroundColor: `${skill.color}` }} />
-      {skill.name}
-    </div>
+    <Skill key={skill.name} skill={skill} />
   ));
 
   return (
