@@ -8,6 +8,7 @@ interface SkillProps {
     ref: string;
   };
 }
+//test
 
 export default function Skill({ skill }: SkillProps) {
   const handleScroll = (ref: string) => {
