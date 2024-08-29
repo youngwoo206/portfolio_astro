@@ -1,6 +1,7 @@
 import "./Landing.css";
 import { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
+import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -19,40 +20,28 @@ export default function Landing() {
     return () => window.removeEventListener("resize", updateMedia);
   });
 
+  const [terminalLineData, setTerminalLineData] = useState([
+    <TerminalOutput>Welcome to my portfolio website!</TerminalOutput>,
+  ]);
+
+  const handleInput = (terminalInput: string) => {
+    setTerminalLineData([
+      <TerminalOutput>{`command: ${terminalInput}`}</TerminalOutput>,
+    ]);
+  };
+
   return (
-    <div>
-      <div className="landing-grid">
-        <div className="hello-div">
-          <p>Hi, I'm </p>
-          <p>Youngwoo 👋</p>
-          <div style={{ marginTop: "50px", marginLeft: "5px" }}>
-            <TypeAnimation
-              sequence={[
-                "software developer",
-                4500,
-                "engineering student",
-                4500,
-                "lifelong learner",
-                4500,
-                "lego enthusiast",
-                4500,
-                "raptors fan",
-                4500,
-              ]}
-              wrapper="div"
-              repeat={Infinity}
-              style={{
-                fontSize: "1.6rem",
-                color: "white",
-                marginTop: "20px",
-              }}
-              cursor={true}
-            />
-          </div>
-        </div>
-        <div className="img-div">
-          <img src="me.jpeg" alt="profile pic" className="pfp" />
-        </div>
+    <div className="landing">
+      <div className="terminal-container">
+        <p className="heading">Hi, I'm Youngwoo</p>
+        <Terminal
+          name=""
+          colorMode={ColorMode.Dark}
+          height="300px"
+          onInput={(terminalInput) => handleInput(terminalInput)}
+        >
+          {terminalLineData}
+        </Terminal>
       </div>
       <div className="media-links-div">
         <a
