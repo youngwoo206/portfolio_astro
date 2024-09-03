@@ -21,6 +21,15 @@
     max-width: 600px;
 }
 
+.wrap{
+    text-wrap: wrap;
+    margin: 0;
+}
+
+.terminal-heading{
+    color: #51ea38;
+}
+
 .media-links-div{
     display: flex;
     gap: 40px;
