@@ -7,9 +7,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Modal from "@mui/material/Modal";
 
 export default function Landing() {
   const [isMobile, setIsMobile] = useState(window.innerWidth > 600);
+  const [open, setOpen] = useState(false);
   const [terminalLineData, setTerminalLineData] = useState([
     <TerminalOutput>Welcome to my portfolio website!</TerminalOutput>,
     <TerminalOutput>
@@ -86,13 +88,28 @@ export default function Landing() {
 
   const handleExperience = () => {
     const exp = [
-      "Ada: SWE intern (Jun 2024-Aug 2024)",
-      "Junior_AI: SWE intern (Aug 2023-Dec 2023)",
-      "Baselane: QA Developer (May 2023-Aug 2023)",
-      "Saige: Full Stack Developer (Feb 2023-May 2023)",
+      {
+        heading: "Ada",
+        content: "SWE intern (Jun 2024-Aug 2024)",
+      },
+      {
+        heading: "Junior_AI",
+        content: "SWE intern (Aug 2023-Dec 2023)",
+      },
+      {
+        heading: "Baselane",
+        content: "QA Developer (May 2023-Aug 2023)",
+      },
+      {
+        heading: "Saige",
+        content: "Full Stack Developer (Feb 2023-May 2023)",
+      },
     ];
     const expLines = exp.map((ex) => (
-      <TerminalOutput>{`${ex}`}</TerminalOutput>
+      <div className="wrap">
+        <span className="terminal-heading">{`${ex.heading}: `}</span>
+        {ex.content}
+      </div>
     ));
     setTerminalLineData(expLines);
   };
@@ -125,8 +142,32 @@ export default function Landing() {
     setTerminalLineData(skillLines);
   };
 
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="landing">
+      <Modal open={open} onClose={handleClose}>
+        <div className="terminal-modal">
+          <Terminal
+            name=""
+            colorMode={ColorMode.Dark}
+            height="80vh"
+            onInput={(terminalInput) => handleInput(terminalInput)}
+            greenBtnCallback={() => {
+              setOpen(true);
+            }}
+            yellowBtnCallback={() => {
+              setOpen(false);
+            }}
+            redBtnCallback={() => {
+              setOpen(false);
+              handleClear();
+            }}
+          >
+            {terminalLineData}
+          </Terminal>
+        </div>
+      </Modal>
       <div className="terminal-container">
         <p className="heading">Hi, I'm Youngwoo 👋</p>
         <Terminal
@@ -134,8 +175,11 @@ export default function Landing() {
           colorMode={ColorMode.Dark}
           height="300px"
           onInput={(terminalInput) => handleInput(terminalInput)}
+          greenBtnCallback={() => {
+            setOpen(true);
+          }}
         >
-          <div className="terminal-area">{terminalLineData}</div>
+          {terminalLineData}
         </Terminal>
       </div>
       <div className="media-links-div">
